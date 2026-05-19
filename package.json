@@ -1,0 +1,24 @@
+{
+  "name": "phonebook-backend",
+  "version": "1.0.0",
+  "description": "Phonebook backend from Full-stack open Part 3",
+  "repository": {
+    "type": "git",
+    "url": "full-stack-open"
+  },
+  "license": "ISC",
+  "author": "Khajan Bisht",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:ui": "rm -rf dist && cd ../full-stack-open/Part-3/phonebook-frontend && npm run build && cp -r dist ../phonebook-backend",
+    "deploy:full": "npm run build:ui && git add . && git commit -m 'ui build' && git push"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "morgan": "^1.10.1"
+  }
+}
