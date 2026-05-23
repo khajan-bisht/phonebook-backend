@@ -14,10 +14,10 @@ const errorHandler = (error, request, response, next) => {
 
   if ( error.name === 'CastError' ) {
     return response.status(400).send({ error: 'malformatted id' })
-  } 
-  else if ( error.name == 'ValidationError' || error.number == 'ValidationError' ) {
+  }
+  else if ( error.name === 'ValidationError' || error.number === 'ValidationError' ) {
     return response.status(400).json({ error: error.message })
-  }  
+  }
 
   next(error)
 }
@@ -42,24 +42,24 @@ app.use(express.static('dist'))
 }*/
 
 /*let persons = [
-    { 
+    {
       "id": "1",
-      "name": "Arto Hellas", 
+      "name": "Arto Hellas",
       "number": "040-123456"
     },
-    { 
+    {
       "id": "2",
-      "name": "Ada Lovelace", 
+      "name": "Ada Lovelace",
       "number": "39-44-5323523"
     },
-    { 
+    {
       "id": "3",
-      "name": "Dan Abramov", 
+      "name": "Dan Abramov",
       "number": "12-43-234345"
     },
-    { 
+    {
       "id": "4",
-      "name": "Mary Poppendick", 
+      "name": "Mary Poppendick",
       "number": "39-23-6423122"
     }
 ]*/
@@ -68,7 +68,7 @@ app.use(express.static('dist'))
   response.send('<h1>Hello World</h1>')
 })*/
 
-// get all persons 
+// get all persons
 app.get('/api/persons', (request, response) => {
   Person.find({}).then(result => {
     response.json(result)
@@ -83,7 +83,7 @@ app.get('/info', (request, response) => {
   })
 })
 
-// get person detail by id 
+// get person detail by id
 app.get('/api/persons/:id', (request, response, next) => {
   Person.findById(request.params.id).then(person => {
     if (person) {
@@ -92,16 +92,16 @@ app.get('/api/persons/:id', (request, response, next) => {
       response.status(404).json({ error: 'Person not found' })
     }
   })
-  .catch(error => next(error))
-})  
+    .catch(error => next(error))
+})
 
 // delete person from database
 app.delete('/api/persons/:id', (request, response, next) => {
   Person.findByIdAndDelete(request.params.id)
-   .then(() => {
-    response.status(204).end()
-  })
-  .catch(error => next(error))
+    .then(() => {
+      response.status(204).end()
+    })
+    .catch(error => next(error))
 })
 
 // create a new person contacts
@@ -123,7 +123,7 @@ app.post('/api/persons', (request, response, next) => {
   person.save().then(result => {
     response.json(result)
   })
-  .catch(error => next(error))
+    .catch(error => next(error))
 
 })
 
@@ -153,7 +153,7 @@ app.use(unknownEndpoint)
 app.use(errorHandler)
 
 
-const PORT = process.env.PORT 
+const PORT = process.env.PORT
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
