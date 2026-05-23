@@ -77,8 +77,10 @@ app.get('/api/persons', (request, response) => {
 
 //get info about the phonebook
 app.get('/info', (request, response) => {
-  response.send(`<p>Phonebook has info for ${Person.length} people</p>
+  Person.countDocuments({}).then(count => {
+    response.send(`<p>Phonebook has info for ${count} people</p>
   <p>${new Date()}</p>`)
+  })
 })
 
 // get person detail by id 
@@ -95,9 +97,8 @@ app.get('/api/persons/:id', (request, response, next) => {
 
 // delete person from database
 app.delete('/api/persons/:id', (request, response, next) => {
-  const id = request.params.id
   Person.findByIdAndDelete(request.params.id)
-   .then(result => {
+   .then(() => {
     response.status(204).end()
   })
   .catch(error => next(error))

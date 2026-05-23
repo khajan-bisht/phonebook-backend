@@ -30,7 +30,7 @@ const personSchema = new mongoose.Schema({
       },
     },
     required: true
-    }
+  }
 })
 
 personSchema.set('toJSON', {
