@@ -1,0 +1,15 @@
+### POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{   
+    "name": "Test name",
+    "number": 12-324556
+}
+
+### POST https://phonebook-backend-9kqi.onrender.com/api/persons
+Content-Type: application/json
+
+{   
+    "name": "Render name",
+    "number": 90-324558
+}

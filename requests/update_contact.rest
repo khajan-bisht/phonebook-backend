@@ -1,0 +1,15 @@
+### PUT http://localhost:3001/api/persons/6a10cacdb36da80346e2798a 
+Content-Type: application/json
+
+{
+    "name": "Test name2",
+    "number": "88-44934656"
+}
+
+### PUT https://phonebook-backend-9kqi.onrender.com/api/persons/6a10cacdb36da80346e2798a 
+Content-Type: application/json
+
+{
+    "name": "Test name2",
+    "number": "88-4495857"
+}
