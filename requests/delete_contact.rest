@@ -1,3 +1,0 @@
-### DELETE http://localhost:3001/api/persons/6a10cacdb36da80346e2798a 
-
-### DELETE https://phonebook-backend-9kqi.onrender.com/api/persons/6a10cacdb36da80346e2798a 

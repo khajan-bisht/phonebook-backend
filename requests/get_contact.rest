@@ -1,7 +1,0 @@
-### GET http://localhost:3001/api/persons/
-
-### GET https://phonebook-backend-9kqi.onrender.com/api/persons
-
-### GET http://localhost:3001/info
-
-### GET https://phonebook-backend-9kqi.onrender.com/info
